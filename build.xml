@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="FXEditor" basedir="." default="run">
+	<property name="src.dir" value="src"/>
+	<property name="classes.dir" value="classes"/>
+	<property name="res.dir" value="resources"/>
+	<property name="dist.dir" value="dist"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="classname" value="fxeditor.Main"/>
+	
+	<path id="libpath">
+		<!-- <fileset dir="${lib.dir}" includes="**/*.jar"/> -->
+	</path>
+
+	<path id="classpath">
+		<path refid="libpath"/>
+		<pathelement path="${classes.dir}"/>
+	</path>
+
+	<path id="modulepath">
+		<pathelement path="/home/shootingstar/Jinhung/lib/javafx-sdk-11.0.1/lib"/>
+	</path>
+
+	<target name="retrieve">
+		<ivy:retrieve/>
+	</target>
+
+	<target name="init" description="Initilize the directory structure.">
+		<mkdir dir="${src.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+
+	<target name="clean" description="Clean the old classes.">
+		<delete includeemptydirs="true">
+			<fileset dir="${classes.dir}" includes="**/*"/>
+			<fileset dir="${dist.dir}" includes="**/*"/>
+		</delete>
+	</target>
+
+	<target name="copy-resources" depends="clean" description="Copy the resources.">
+		<copy todir="${classes.dir}">
+			<fileset dir="." includes="${res.dir}/**"/>
+		</copy>
+	</target>
+
+	<target name="compile" depends="copy-resources" description="Compile the source code.">
+		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}">
+			<modulepath refid="modulepath"/>
+			<classpath refid="classpath"/>
+			<compilerarg line="--add-modules javafx.controls"/>
+		</javac>
+	</target>
+
+	<target name="run" depends="compile" description="Run the program.">
+		<java dir="${classes.dir}" fork="true" classname="${classname}">
+			<modulepath refid="modulepath"/>
+			<classpath refid="classpath"/>
+			<jvmarg line="--add-modules javafx.controls,javafx.fxml"/>
+		</java>
+	</target>
+
+	<target name="run-jar" depends="jar" description="Run the executable jar.">
+		<java dir="${dist.dir}" jar="${dist.dir}/${ant.project.name}.jar" fork="true"/>
+	</target>
+
+	<target name="jar" depends="compile,unzip-lib" description="Build an executable jar.">
+		<jar basedir="${classes.dir}" destfile="${dist.dir}/${ant.project.name}.jar">
+			<manifest>
+				<attribute name="Main-Class" value="${classname}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="unzip-lib">
+		<unzip dest="${classes.dir}">
+			<path refid="libpath"/>
+		</unzip>
+
+		<delete dir="${classes.dir}/META-INF"/>
+	</target>
+</project>

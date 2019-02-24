@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<DialogPane headerText="一個用來練習JavaFX的程式作品(在字體設定上有些Bug)" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+   <graphic>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/notes.png" />
+         </image>
+      </ImageView>
+   </graphic>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <buttonTypes>
+      <ButtonType fx:constant="YES" />
+   </buttonTypes>
+   <content>
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label text="Icons made by" />
+            <Hyperlink text="Prosymbols" />
+            <Label text="from" />
+            <Hyperlink text="Flaticon" />
+            <Label text="is licensed by" />
+            <Hyperlink text="CC 3.0 BY" />
+         </children>
+      </FlowPane>
+   </content>
+</DialogPane>

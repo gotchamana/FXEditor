@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<GridPane vgap="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxeditor.FontChooser">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" vgrow="NEVER" />
+   </rowConstraints>
+   <children>
+      <GridPane hgap="10.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <VBox prefHeight="150.0">
+               <children>
+                  <Label mnemonicParsing="true" text="字型(_F):">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField />
+                  <ListView fx:id="fontFamily" />
+               </children>
+            </VBox>
+            <VBox prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1">
+               <children>
+                  <Label mnemonicParsing="true" text="字型樣式(_Y):">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField />
+                  <ListView fx:id="fontStyle" />
+               </children>
+            </VBox>
+            <VBox prefHeight="150.0" prefWidth="80.0" GridPane.columnIndex="2">
+               <children>
+                  <Label mnemonicParsing="true" text="大小(_S):">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField />
+                  <ListView fx:id="fontSize" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" prefHeight="185.0" prefWidth="511.0" text="範例" GridPane.rowIndex="1">
+         <content>
+            <Label text="AaBbYyZz" />
+         </content>
+      </TitledPane>
+      <ButtonBar GridPane.rowIndex="2">
+         <buttons>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="確定" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="取消" />
+         </buttons>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

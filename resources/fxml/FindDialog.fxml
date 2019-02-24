@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxeditor.FindDialog">
+   <children>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="18.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label mnemonicParsing="true" text="尋找目標(_N):" />
+            <TextField prefHeight="26.0" prefWidth="259.0" />
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" layoutX="23.0" layoutY="109.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="109.0">
+         <children>
+            <CheckBox text="大小寫視為相異(_C)" />
+            <TitledPane collapsible="false" prefHeight="66.0" prefWidth="192.0" text="方向">
+               <content>
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="144.0" spacing="10.0">
+                     <children>
+                        <RadioButton text="向上(_U)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="directon" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton text="向下(_D)" toggleGroup="$directon" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </TitledPane>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" layoutX="377.0" layoutY="18.0" spacing="10.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="找下一個(_F)" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="取消" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>
