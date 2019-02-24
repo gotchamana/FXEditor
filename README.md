@@ -1,6 +1,6 @@
 # FXEditor
+盡可能地模仿了MS Notepad，順便練習一下JavaFX  
 ![Demo](demo/FXEditor.png)
-盡可能地模仿了MS Notepad，順便練習一下JavaFX
 
 # Download
 - Windows:[ 載點](https://github.com/gotchamana/FXEditor/releases/download/v1.0/Win64.zip)
