@@ -1,4 +1,5 @@
 # FXEditor
+![Demo](demo/FXEditor.png)
 盡可能地模仿了MS Notepad，順便練習一下JavaFX
 
 # Download
